@@ -65,10 +65,28 @@ class DeckListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let deckToDelete = tableView.indexPathForSelectedRow
-            guard let index = deckToDelete else {return}
-            
-            
+            let deckToDelete = CardController.shared.deckNames[indexPath.row]
+            var cardsToDelete: [Card] = []
+            for card in CardController.shared.cards {
+                if card.deck == CardController.shared.cards[indexPath.row].deck {
+                    cardsToDelete.append(card)
+                }
+            }
+            guard let index = CardController.shared.deckNames.firstIndex(of: deckToDelete) else {return}
+            CardController.shared.deckNames.remove(at: index)
+            for cardToDelete in cardsToDelete {
+                CardController.shared.deleteCard(card: cardToDelete) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let success):
+                            print(success)
+                               
+                        case .failure(let error):
+                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        }
+                    }
+                }
+            }
             
             tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -83,19 +101,11 @@ class DeckListTableViewController: UITableViewController {
         if segue.identifier == "toCardVC" {
             guard let indexPath = tableView.indexPathForSelectedRow,
                   let destinationVC = segue.destination as? FlashCardViewController else {return}
-            let allCards = CardController.shared.cards
-            var cardsToSend: [Card] = []
-            for card in allCards {
-            if "\(card.deck)" == "\(CardController.shared.deckNames[indexPath.row])"{
-                cardsToSend.append(card)
-            destinationVC.cards = cardsToSend
-                print(cardsToSend)
-            }
-                
+            if CardController.shared.cards[indexPath.row].deck == CardController.shared.deckNames[indexPath.row] {
+            let cardToSend = CardController.shared.cards[indexPath.row]
+            
+            destinationVC.currentCard = cardToSend
             }
         }
     }
-    
-    
-    
 }

@@ -398,6 +398,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="(deck name)" id="QTA-jW-It8"/>
                     <connections>
+                        <outlet property="deckNameLabel" destination="QTA-jW-It8" id="weU-Um-dKP"/>
                         <outlet property="questionOrAnswerLabel" destination="NpC-kG-tSd" id="gvh-AW-qX9"/>
                         <outlet property="textView" destination="WNw-PM-iiI" id="pT6-hv-YUs"/>
                     </connections>

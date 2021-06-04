@@ -16,6 +16,8 @@ class CardController {
     
     var deckNames: [String] = []
     
+    var defaultCard = Card(question: "Default", answer: "Default", deck: "Default")
+    
     let privateDB = CKContainer.default().privateCloudDatabase
     
     
