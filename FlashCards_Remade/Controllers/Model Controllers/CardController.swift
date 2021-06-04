@@ -14,7 +14,7 @@ class CardController {
     
     var cards: [Card] = []
     
-    var deckNames: [String] = []
+    var deckNames: [String] = [].sorted { $0.lowercased() < $1.lowercased() }
     
     var defaultCard = Card(question: "Default", answer: "Default", deck: "Default")
     
@@ -88,6 +88,7 @@ class CardController {
         
         for card in cards {
             if !deckNames.contains(card.deck) {
+
                 deckNames.append(card.deck)
             }
         }

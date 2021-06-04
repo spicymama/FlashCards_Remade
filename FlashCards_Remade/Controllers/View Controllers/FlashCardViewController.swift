@@ -35,6 +35,7 @@ class FlashCardViewController: UIViewController {
         updateViews()
 
     }
+    var deckToSend: String?
     var currentCard: Card?
     var previousCard: Card?
     var nextCard: Card?
@@ -76,15 +77,15 @@ class FlashCardViewController: UIViewController {
     }
     
     func randomCard()-> Card {
-        guard let card = currentCard else {return CardController.shared.defaultCard}
+        
         var cards: [Card] = []
-            previousCard = card
         for card in CardController.shared.cards {
-            if card.deck == previousCard?.deck && card != previousCard {
+            if card.deck == deckToSend && card != previousCard{
                 cards.append(card)
             }
             nextCard = cards.randomElement()
             currentCard = nextCard
+            previousCard = currentCard
         }
         return currentCard ?? CardController.shared.defaultCard
     }
@@ -99,5 +100,5 @@ class FlashCardViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

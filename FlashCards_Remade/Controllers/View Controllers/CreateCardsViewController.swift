@@ -31,8 +31,11 @@ class CreateCardsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.questionTextField.text = ""
                 self.answerTextField.text = ""
-                self.navigationController?.popViewController(animated: true)
             }
+        }
+        if !CardController.shared.deckNames.contains(deck) {
+            CardController.shared.deckNames.append(deck)
+        self.navigationController?.popViewController(animated: true)
         }
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
@@ -46,6 +49,9 @@ class CreateCardsViewController: UIViewController {
                 self.questionTextField.text = ""
                 self.answerTextField.text = ""
             }
+        }
+        if !CardController.shared.deckNames.contains(deck) {
+            CardController.shared.deckNames.append(deck)
         }
     }
     @IBAction func answerImageButtonTapped(_ sender: Any) {
