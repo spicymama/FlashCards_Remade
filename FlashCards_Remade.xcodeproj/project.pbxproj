@@ -9,21 +9,38 @@
 /* Begin PBXBuildFile section */
 		EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C36266811FD0056C97D /* AppDelegate.swift */; };
 		EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C38266811FD0056C97D /* SceneDelegate.swift */; };
-		EAB20C3B266811FD0056C97D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C3A266811FD0056C97D /* ViewController.swift */; };
 		EAB20C3E266811FD0056C97D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB20C3C266811FD0056C97D /* Main.storyboard */; };
 		EAB20C40266811FF0056C97D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB20C3F266811FF0056C97D /* Assets.xcassets */; };
 		EAB20C43266811FF0056C97D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB20C41266811FF0056C97D /* LaunchScreen.storyboard */; };
+		EAB20C4E2668121C0056C97D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB20C4D2668121C0056C97D /* CloudKit.framework */; };
+		EAB20C5E266813A40056C97D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C5D266813A40056C97D /* Card.swift */; };
+		EAB20C64266818000056C97D /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C63266818000056C97D /* CardController.swift */; };
+		EAB20C6926681C650056C97D /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C6826681C650056C97D /* CardError.swift */; };
+		EAB20C6D266822A50056C97D /* CreateCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */; };
+		EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7426682D440056C97D /* DeckListTableViewController.swift */; };
+		EAB20C7826682D680056C97D /* StudyTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7726682D680056C97D /* StudyTargetViewController.swift */; };
+		EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */; };
+		EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EAB20C33266811FD0056C97D /* FlashCards_Remade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCards_Remade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB20C36266811FD0056C97D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB20C38266811FD0056C97D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EAB20C3A266811FD0056C97D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EAB20C3D266811FD0056C97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAB20C3F266811FF0056C97D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAB20C42266811FF0056C97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAB20C44266811FF0056C97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB20C4D2668121C0056C97D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EAB20C5D266813A40056C97D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		EAB20C63266818000056C97D /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
+		EAB20C6826681C650056C97D /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
+		EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardsViewController.swift; sourceTree = "<group>"; };
+		EAB20C7426682D440056C97D /* DeckListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListTableViewController.swift; sourceTree = "<group>"; };
+		EAB20C7726682D680056C97D /* StudyTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTargetViewController.swift; sourceTree = "<group>"; };
+		EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		EAB20C80266936F70056C97D /* FlashCards_Remade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashCards_Remade.entitlements; sourceTree = "<group>"; };
+		EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckNameTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB20C4E2668121C0056C97D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				EAB20C35266811FD0056C97D /* FlashCards_Remade */,
 				EAB20C34266811FD0056C97D /* Products */,
+				EAB20C4C2668121C0056C97D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +75,103 @@
 		EAB20C35266811FD0056C97D /* FlashCards_Remade */ = {
 			isa = PBXGroup;
 			children = (
-				EAB20C36266811FD0056C97D /* AppDelegate.swift */,
-				EAB20C38266811FD0056C97D /* SceneDelegate.swift */,
-				EAB20C3A266811FD0056C97D /* ViewController.swift */,
-				EAB20C3C266811FD0056C97D /* Main.storyboard */,
-				EAB20C3F266811FF0056C97D /* Assets.xcassets */,
-				EAB20C41266811FF0056C97D /* LaunchScreen.storyboard */,
-				EAB20C44266811FF0056C97D /* Info.plist */,
+				EAB20C57266812750056C97D /* Models */,
+				EAB20C542668125D0056C97D /* Controllers */,
+				EAB20C512668124A0056C97D /* Views */,
+				EAB20C6726681C170056C97D /* Helpers */,
+				EAB20C4F266812410056C97D /* Resources */,
 			);
 			path = FlashCards_Remade;
+			sourceTree = "<group>";
+		};
+		EAB20C4C2668121C0056C97D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C4D2668121C0056C97D /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAB20C4F266812410056C97D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C80266936F70056C97D /* FlashCards_Remade.entitlements */,
+				EAB20C36266811FD0056C97D /* AppDelegate.swift */,
+				EAB20C38266811FD0056C97D /* SceneDelegate.swift */,
+				EAB20C3F266811FF0056C97D /* Assets.xcassets */,
+				EAB20C44266811FF0056C97D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EAB20C512668124A0056C97D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C53266812570056C97D /* Custom Views */,
+				EAB20C522668124F0056C97D /* Storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EAB20C522668124F0056C97D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C3C266811FD0056C97D /* Main.storyboard */,
+				EAB20C41266811FF0056C97D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		EAB20C53266812570056C97D /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		EAB20C542668125D0056C97D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C562668126D0056C97D /* Model Controllers */,
+				EAB20C55266812630056C97D /* View Controllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EAB20C55266812630056C97D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */,
+				EAB20C7426682D440056C97D /* DeckListTableViewController.swift */,
+				EAB20C7726682D680056C97D /* StudyTargetViewController.swift */,
+				EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EAB20C562668126D0056C97D /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C63266818000056C97D /* CardController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		EAB20C57266812750056C97D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C5D266813A40056C97D /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EAB20C6726681C170056C97D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EAB20C6826681C650056C97D /* CardError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +244,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB20C3B266811FD0056C97D /* ViewController.swift in Sources */,
+				EAB20C64266818000056C97D /* CardController.swift in Sources */,
+				EAB20C7826682D680056C97D /* StudyTargetViewController.swift in Sources */,
+				EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */,
+				EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */,
 				EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */,
+				EAB20C5E266813A40056C97D /* Card.swift in Sources */,
+				EAB20C6926681C650056C97D /* CardError.swift in Sources */,
+				EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */,
+				EAB20C6D266822A50056C97D /* CreateCardsViewController.swift in Sources */,
 				EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,14 +400,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlashCards_Remade/Resources/FlashCards_Remade.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SP8PT7VLP6;
-				INFOPLIST_FILE = FlashCards_Remade/Info.plist;
+				INFOPLIST_FILE = FlashCards_Remade/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.FlashCards-Remade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.GavinWoffinden.FlashCards-Remade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,14 +420,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlashCards_Remade/Resources/FlashCards_Remade.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SP8PT7VLP6;
-				INFOPLIST_FILE = FlashCards_Remade/Info.plist;
+				INFOPLIST_FILE = FlashCards_Remade/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.FlashCards-Remade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.GavinWoffinden.FlashCards-Remade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
