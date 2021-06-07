@@ -13,21 +13,25 @@ class DeckListTableViewController: UITableViewController {
         super.viewDidLoad()
         setupViews()
         loadData()
-        tableView.reloadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
         
     }
     var refresh: UIRefreshControl = UIRefreshControl()
     
-    func setupViews() {
+   func setupViews() {
         refresh.attributedTitle = NSAttributedString(string: "Pull to load")
         refresh.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.addSubview(refresh)
-
+        
     }
     func updateViews() {
         DispatchQueue.main.async {
             self.refresh.endRefreshing()
             self.tableView.reloadData()
+            print(CardController.shared.deckNames)
         }
     }
     
@@ -48,14 +52,16 @@ class DeckListTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(CardController.shared.deckNames.count)
+        setupViews()
         return CardController.shared.deckNames.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "deckCell", for: indexPath) as? DeckNameTableViewCell else {return UITableViewCell()}
-        
-        let deck = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }[indexPath.row]
+        setupViews()
+        let deck = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }[indexPath.item]
         cell.deck = deck
         
         return cell
@@ -65,31 +71,34 @@ class DeckListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let deckToDelete = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }[indexPath.row]
             var cardsToDelete: [Card] = []
             for card in CardController.shared.cards {
-                if card.deck == CardController.shared.cards[indexPath.row].deck {
-                    cardsToDelete.append(card)
-                }
+                if card.deck == CardController.shared.deckNames[indexPath.row] {
+                cardsToDelete.append(card)
             }
-            guard let index = CardController.shared.deckNames.sorted(by: { $0.lowercased() < $1.lowercased() }).firstIndex(of: deckToDelete) else {return}
-            CardController.shared.deckNames.remove(at: index).sorted { $0.lowercased() < $1.lowercased() }
-            for cardToDelete in cardsToDelete {
-                CardController.shared.deleteCard(card: cardToDelete) { (result) in
+            }
+            for card in cardsToDelete {
+
+                CardController.shared.deleteCard(card: card) { (result) in
+                    
                     DispatchQueue.main.async {
                         switch result {
                         case .success(let success):
                             print(success)
-                               
+                          CardController.shared.deckNames = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }
+                            if !CardController.shared.deckNames.contains(card.deck) {
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+                                self.setupViews()
+                            }
+                            
+                          
                         case .failure(let error):
-                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }
                     }
                 }
             }
-            setupViews()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }    
+        }
     }
     
     
@@ -100,10 +109,8 @@ class DeckListTableViewController: UITableViewController {
         if segue.identifier == "toCardVC" {
             guard let indexPath = tableView.indexPathForSelectedRow,
                   let destinationVC = segue.destination as? FlashCardViewController else {return}
-//if CardController.shared.cards[indexPath.row].deck == CardController.shared.deckNames[indexPath.row] {
             let deckToSend = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }[indexPath.row]
             destinationVC.deckToSend = deckToSend
-          // }
         }
     }
 }

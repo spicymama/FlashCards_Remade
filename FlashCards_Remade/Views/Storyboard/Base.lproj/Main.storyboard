@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="fah-4Q-sAE" customClass="CreateCardsViewController" customModule="FlashCards_Remade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nxg-vu-AbS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XLy-n4-Lwn">
-                                <rect key="frame" x="20.5" y="32" width="373" height="631.5"/>
+                                <rect key="frame" x="20.5" y="120" width="373" height="672"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Deck Name Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bg2-3u-Xna">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="55"/>
@@ -28,10 +28,10 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-Kr-a2s">
-                                        <rect key="frame" x="0.0" y="63" width="373" height="568.5"/>
+                                        <rect key="frame" x="0.0" y="63" width="373" height="609"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0sZ-ol-Cic">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="279.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="299.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="189" translatesAutoresizingMaskIntoConstraints="NO" id="Yl1-Ti-2dl">
                                                         <rect key="frame" x="0.0" y="0.0" width="373" height="42"/>
@@ -55,14 +55,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MUq-iD-EVz">
-                                                        <rect key="frame" x="0.0" y="50" width="373" height="229.5"/>
+                                                        <rect key="frame" x="0.0" y="50" width="373" height="249.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VgB-ti-gpw">
-                                                <rect key="frame" x="0.0" y="289.5" width="373" height="279"/>
+                                                <rect key="frame" x="0.0" y="309.5" width="373" height="299.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="225" translatesAutoresizingMaskIntoConstraints="NO" id="vYS-u5-iFb">
                                                         <rect key="frame" x="0.0" y="0.0" width="373" height="42"/>
@@ -86,29 +86,22 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-zz-WaJ">
-                                                        <rect key="frame" x="0.0" y="50" width="373" height="191"/>
+                                                        <rect key="frame" x="0.0" y="50" width="373" height="211.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="211.5" id="I0I-0Q-X51"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="13l-kv-hb8">
-                                                        <rect key="frame" x="0.0" y="249" width="373" height="30"/>
+                                                        <rect key="frame" x="0.0" y="269.5" width="373" height="30"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTp-gJ-zdy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="163" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="X8A-ro-S2Z"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Done"/>
-                                                                <connections>
-                                                                    <action selector="doneButtonTapped:" destination="fah-4Q-sAE" eventType="touchUpInside" id="4bm-Xs-3O6"/>
-                                                                </connections>
-                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEK-yX-ebR">
-                                                                <rect key="frame" x="273" y="0.0" width="100" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="OwZ-Z8-0ba"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Next"/>
+                                                                <state key="normal" title="Add Another Card"/>
                                                                 <connections>
                                                                     <action selector="nextButtonTapped:" destination="fah-4Q-sAE" eventType="touchUpInside" id="0xl-vw-UjH"/>
                                                                 </connections>
@@ -131,6 +124,13 @@
                             <constraint firstItem="XLy-n4-Lwn" firstAttribute="height" secondItem="nxg-vu-AbS" secondAttribute="height" multiplier="0.75" id="cAY-OT-n4d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6gF-Ss-Pr4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XZ4-pW-jdq">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="fah-4Q-sAE" id="U18-Ir-cfC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="answerTextField" destination="2RF-zz-WaJ" id="uNZ-dw-V0E"/>
                         <outlet property="deckNameTextField" destination="Bg2-3u-Xna" id="RLk-6h-KNA"/>
@@ -181,7 +181,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="PLJ-UJ-jpn">
                                 <connections>
-                                    <segue destination="fah-4Q-sAE" kind="presentation" id="dgq-us-2za"/>
+                                    <segue destination="fah-4Q-sAE" kind="show" id="dgq-us-2za"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="hourglass" catalog="system" id="8AZ-R7-YOw">

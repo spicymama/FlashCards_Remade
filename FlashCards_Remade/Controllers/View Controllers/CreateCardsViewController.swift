@@ -21,7 +21,7 @@ class CreateCardsViewController: UIViewController {
    
     //MARK: - Functions
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    @IBAction func saveButtonTapped(_ sender: Any) {
         guard let question = questionTextField.text, !question.isEmpty,
               let answer = answerTextField.text, !answer.isEmpty,
               let deck = deckNameTextField.text, !deck.isEmpty
@@ -31,11 +31,14 @@ class CreateCardsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.questionTextField.text = ""
                 self.answerTextField.text = ""
+               // self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+                
             }
-        }
-        if !CardController.shared.deckNames.contains(deck) {
-            CardController.shared.deckNames.append(deck)
-        self.navigationController?.popViewController(animated: true)
+            if !CardController.shared.deckNames.contains(deck) {
+                CardController.shared.deckNames.append(deck)
+                CardController.shared.deckNames = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }
+            }
         }
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
@@ -50,9 +53,7 @@ class CreateCardsViewController: UIViewController {
                 self.answerTextField.text = ""
             }
         }
-        if !CardController.shared.deckNames.contains(deck) {
-            CardController.shared.deckNames.append(deck)
-        }
+ 
     }
     @IBAction func answerImageButtonTapped(_ sender: Any) {
     }

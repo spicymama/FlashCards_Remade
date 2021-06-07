@@ -42,12 +42,15 @@ class FlashCardViewController: UIViewController {
     
     @IBAction func previousButtonTapped(_ sender: Any) {
         self.questionOrAnswerLabel.text = "Question:"
-        self.textView.text = "\(String(describing: previousCard?.question))"
+        self.textView.text = "\(previousCard!.question)"
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
+        
         randomCard()
+        guard let card = currentCard else {return}
+        
         self.questionOrAnswerLabel.text = "Question:"
-        self.textView.text = "\(String(describing: currentCard?.question))"
+        self.textView.text = "\(card.question)"
     }
     @IBAction func cardTapped(_ sender: Any) {
        flipCard()
