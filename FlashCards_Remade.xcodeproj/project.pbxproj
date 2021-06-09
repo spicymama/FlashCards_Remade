@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA870A55266E8F5B005809AD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A54266E8F5B005809AD /* Post.swift */; };
+		EA870A58266E8FAE005809AD /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A57266E8FAE005809AD /* PostController.swift */; };
+		EA870A5B266E9625005809AD /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A5A266E9625005809AD /* PostError.swift */; };
+		EA870A5F266E9931005809AD /* Subreddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A5E266E9931005809AD /* Subreddit.swift */; };
+		EA870A62266EAAB3005809AD /* SubredditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */; };
+		EA870A76266EDE70005809AD /* StudyGoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */; };
 		EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C36266811FD0056C97D /* AppDelegate.swift */; };
 		EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C38266811FD0056C97D /* SceneDelegate.swift */; };
 		EAB20C3E266811FD0056C97D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB20C3C266811FD0056C97D /* Main.storyboard */; };
@@ -18,12 +24,17 @@
 		EAB20C6926681C650056C97D /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C6826681C650056C97D /* CardError.swift */; };
 		EAB20C6D266822A50056C97D /* CreateCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */; };
 		EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7426682D440056C97D /* DeckListTableViewController.swift */; };
-		EAB20C7826682D680056C97D /* StudyTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7726682D680056C97D /* StudyTargetViewController.swift */; };
 		EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */; };
 		EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA870A54266E8F5B005809AD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EA870A57266E8FAE005809AD /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		EA870A5A266E9625005809AD /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
+		EA870A5E266E9931005809AD /* Subreddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subreddit.swift; sourceTree = "<group>"; };
+		EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditTableViewCell.swift; sourceTree = "<group>"; };
+		EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGoalTableViewController.swift; sourceTree = "<group>"; };
 		EAB20C33266811FD0056C97D /* FlashCards_Remade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCards_Remade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB20C36266811FD0056C97D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB20C38266811FD0056C97D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +48,6 @@
 		EAB20C6826681C650056C97D /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
 		EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardsViewController.swift; sourceTree = "<group>"; };
 		EAB20C7426682D440056C97D /* DeckListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListTableViewController.swift; sourceTree = "<group>"; };
-		EAB20C7726682D680056C97D /* StudyTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTargetViewController.swift; sourceTree = "<group>"; };
 		EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		EAB20C80266936F70056C97D /* FlashCards_Remade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashCards_Remade.entitlements; sourceTree = "<group>"; };
 		EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckNameTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */,
+				EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -144,8 +155,8 @@
 			children = (
 				EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */,
 				EAB20C7426682D440056C97D /* DeckListTableViewController.swift */,
-				EAB20C7726682D680056C97D /* StudyTargetViewController.swift */,
 				EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */,
+				EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -154,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB20C63266818000056C97D /* CardController.swift */,
+				EA870A57266E8FAE005809AD /* PostController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -162,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				EAB20C5D266813A40056C97D /* Card.swift */,
+				EA870A54266E8F5B005809AD /* Post.swift */,
+				EA870A5E266E9931005809AD /* Subreddit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB20C6826681C650056C97D /* CardError.swift */,
+				EA870A5A266E9625005809AD /* PostError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -244,14 +259,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA870A76266EDE70005809AD /* StudyGoalTableViewController.swift in Sources */,
 				EAB20C64266818000056C97D /* CardController.swift in Sources */,
-				EAB20C7826682D680056C97D /* StudyTargetViewController.swift in Sources */,
 				EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */,
+				EA870A58266E8FAE005809AD /* PostController.swift in Sources */,
 				EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */,
 				EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */,
+				EA870A5F266E9931005809AD /* Subreddit.swift in Sources */,
 				EAB20C5E266813A40056C97D /* Card.swift in Sources */,
+				EA870A5B266E9625005809AD /* PostError.swift in Sources */,
 				EAB20C6926681C650056C97D /* CardError.swift in Sources */,
 				EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */,
+				EA870A62266EAAB3005809AD /* SubredditTableViewCell.swift in Sources */,
+				EA870A55266E8F5B005809AD /* Post.swift in Sources */,
 				EAB20C6D266822A50056C97D /* CreateCardsViewController.swift in Sources */,
 				EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */,
 			);

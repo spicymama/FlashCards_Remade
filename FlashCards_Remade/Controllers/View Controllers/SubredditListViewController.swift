@@ -1,13 +1,13 @@
 //
-//  StudyTargetViewController.swift
+//  SubredditListViewController.swift
 //  FlashCards_Remade
 //
-//  Created by Gavin Woffinden on 6/2/21.
+//  Created by Gavin Woffinden on 6/7/21.
 //
 
 import UIKit
 
-class StudyTargetViewController: UIViewController {
+class SubredditListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
