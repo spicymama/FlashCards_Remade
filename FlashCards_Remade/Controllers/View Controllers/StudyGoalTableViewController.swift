@@ -14,18 +14,18 @@ static let shared = StudyGoalTableViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
       fetchSubreddits()
-        print(selectedSubs)
+        
     }
-  
-    var subreddits: [String] = []
     var selectedSubs: [String] = []
+    var subreddits: [String] = [].sorted { $0.lowercased() < $1.lowercased() }
+    var unselectedSubs: [String] = []
    
     func fetchSubreddits() {
         PostController.fetchSubreddits { (result) in
         DispatchQueue.main.async {
             switch result {
             case .success(let subreddits):
-                self.subreddits = subreddits
+                self.subreddits = subreddits.sorted { $0.lowercased() < $1.lowercased() }
                 self.tableView.reloadData()
             case .failure(let error):
                  print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -49,19 +49,9 @@ static let shared = StudyGoalTableViewController()
      
         let subreddit = subreddits[indexPath.row]
         cell.subreddit = subreddit
-       // cell.textLabel?.text = subreddit
+       
        
         return cell
     }
-}
-/*
-extension StudyGoalTableViewController: SubredditTableViewCellDelegate {
-    func cellWasSelected(_ sender: SubredditTableViewCell) {
-        guard let subreddit = sender.subreddit else {return}
-        selectedSubs.append(subreddit)
-        sender.updateViews()
-       
-    }
  
 }
-*/

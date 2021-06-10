@@ -10,7 +10,7 @@ import UIKit
 
 class PostController {
     static let shared = PostController()
-    var subredditList: [String] = []
+    var subredditList: [String] = [].sorted { $0.lowercased() < $1.lowercased() }
     
     static func fetchSubreddits(completion: @escaping (Result<[String], PostError>)-> Void) {
         let baseURL = URL(string: "https://www.reddit.com/subreddits/popular/.json")
@@ -36,9 +36,9 @@ class PostController {
                     let subreddit = i.data.display_name_prefixed
                 
                     PostController.shared.subredditList.append(subreddit)
-                    print(subreddit)
+                        print(subreddit)
                 }
-                completion(.success(PostController.shared.subredditList))
+                completion(.success(PostController.shared.subredditList.sorted { $0.lowercased() < $1.lowercased() }))
                 
             } catch {
                 completion(.failure(.thrownError(error)))
@@ -48,9 +48,12 @@ class PostController {
     }
     
     static func fetchPosts(completion: @escaping (Result<[Post], PostError>) -> Void) {
-        let baseURL = URL(string: "https://www.reddit.com/subreddits/popular/.json")
+        let subs = StudyGoalTableViewController.shared.selectedSubs.randomElement()
+        let sub = (subs ?? "r/memes") + "/.json"
+        let baseURL = URL(string: "https://www.reddit.com/")
         
-        guard let finalURL = baseURL else {return completion(.failure(.invalidURL))}
+        guard let finalURL = baseURL?.appendingPathComponent(sub) else {return completion(.failure(.invalidURL))}
+            print(finalURL)
         URLSession.shared.dataTask(with: finalURL) { (data, response, error) in
             
             if let error = error {
@@ -83,6 +86,7 @@ class PostController {
             }
             
         }.resume()
+        
     }
     static func fetchThumbNail(post: Post, completion: @escaping (Result<UIImage, PostError>)-> Void) {
         
@@ -103,9 +107,5 @@ class PostController {
             completion(.success(thumbnail))
             
         }.resume()
-        
     }
-    
-   
 }
-

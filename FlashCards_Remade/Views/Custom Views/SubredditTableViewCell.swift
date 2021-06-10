@@ -7,17 +7,12 @@
 
 import UIKit
 
-protocol SubredditTableViewCellDelegate: AnyObject {
-    func cellWasSelected(_ sender: SubredditTableViewCell)
-}
-
 class SubredditTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subredditNameLabel: UILabel!
     @IBOutlet weak var iconImage: UIButton!
-    
-    
   
+   
     var subreddit: String? {
         didSet {
             updateViews()
@@ -25,32 +20,41 @@ class SubredditTableViewCell: UITableViewCell {
         }
     }
     
-    weak var delegate: SubredditTableViewCellDelegate?
-    private var cellTapped: Bool = false
     
     func updateViews() {
        guard let subreddit = subreddit else {return}
         subredditNameLabel.text = "\(subreddit)"
-        /*
-        
-        cellTapped ? iconImage.setImage(selected, for: .normal) : iconImage.setImage(unselected, for: .normal)
-            */
-        
     }
 
     @IBAction func subredditCellButtonTapped(_ sender: Any) {
-        toggleIcon()
-        print("button works")
+      toggleIcon()
+        print(StudyGoalTableViewController.shared.selectedSubs)
+      //  for sub in PostController.shared.subredditList {
+           // if self.iconImage.image(for: .normal) == UIImage(systemName: "checkmark.seal") && selectedSubs.contains(sub) {
+             //   self.iconImage.setImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
+            //}
+       // }
+       
     }
     func toggleIcon() {
-        let selected = UIImage(named: "checkmark.seal.fill")
-        let unselected = UIImage(named: "checkmark.seal")
-       // if iconImage.imageView?.image == selected {
-           // iconImage.setImage(unselected, for: .normal)
-       // }
-      //  else if iconImage.imageView?.image == unselected {
-            iconImage.setImage(selected, for: .normal)
-        //}
+      
+        if iconImage.image(for: .normal) == UIImage(systemName: "checkmark.seal") &&  !StudyGoalTableViewController.shared.selectedSubs.contains(self.textLabel?.text ?? "problem") {
+            iconImage.setImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
+            StudyGoalTableViewController.shared.selectedSubs.append(self.subreddit ?? "problem")
+          
+        }
+       else if iconImage.image(for: .normal) == UIImage(systemName: "checkmark.seal.fill") &&
+                StudyGoalTableViewController.shared.selectedSubs.contains(self.subreddit ?? "problem"){
+           iconImage.setImage(UIImage(systemName: "checkmark.seal"), for: .normal)
+        guard let index = StudyGoalTableViewController.shared.selectedSubs.firstIndex(of: self.subreddit ?? "problem") else {return}
+        StudyGoalTableViewController.shared.selectedSubs.remove(at: index)
+        }
+   
     }
-    
+   
+    func fetchIcons() {
+        for _ in StudyGoalTableViewController.shared.selectedSubs {
+            self.iconImage.setImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
+        }
+    }
 }

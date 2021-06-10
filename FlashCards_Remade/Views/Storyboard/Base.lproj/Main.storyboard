@@ -204,7 +204,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which subreddits do you like?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ndu-cl-VyK">
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which subreddits sound good today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ndu-cl-VyK">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -248,31 +248,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yi-rV-fA6">
-                                            <rect key="frame" x="34" y="0.0" width="350" height="49"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="350" id="Oah-8J-zVt"/>
-                                            </constraints>
-                                            <state key="normal" image="checkmark.seal" catalog="system"/>
-                                            <connections>
-                                                <action selector="subredditCellButtonTapped:" destination="JQc-lR-KZa" eventType="touchUpInside" id="Hh8-XF-mdy"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-q4-u4y">
-                                            <rect key="frame" x="35" y="0.0" width="41.5" height="49"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-Pm-HLE">
+                                            <rect key="frame" x="35" y="0.0" width="274" height="22"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-q4-u4y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="KIk-WU-NC2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yi-rV-fA6">
+                                                    <rect key="frame" x="229" y="0.0" width="45" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="Oah-8J-zVt"/>
+                                                    </constraints>
+                                                    <state key="normal" image="checkmark.seal" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="subredditCellButtonTapped:" destination="JQc-lR-KZa" eventType="touchUpInside" id="Hh8-XF-mdy"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LXf-q4-u4y" secondAttribute="trailing" symbolic="YES" id="HjP-65-ZA6"/>
-                                        <constraint firstItem="LXf-q4-u4y" firstAttribute="top" secondItem="run-YU-aNZ" secondAttribute="top" id="VCc-P3-hQu"/>
-                                        <constraint firstAttribute="bottom" secondItem="4yi-rV-fA6" secondAttribute="bottom" id="bhH-bL-9TT"/>
-                                        <constraint firstItem="LXf-q4-u4y" firstAttribute="leading" secondItem="run-YU-aNZ" secondAttribute="leading" constant="35" id="cNm-Po-TKW"/>
-                                        <constraint firstItem="4yi-rV-fA6" firstAttribute="top" secondItem="run-YU-aNZ" secondAttribute="top" id="d6l-AJ-hfJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="LXf-q4-u4y" secondAttribute="bottom" id="hFa-vV-kYh"/>
-                                        <constraint firstAttribute="trailing" secondItem="4yi-rV-fA6" secondAttribute="trailing" constant="30" id="kls-3g-ai6"/>
+                                        <constraint firstItem="BCq-Pm-HLE" firstAttribute="top" secondItem="run-YU-aNZ" secondAttribute="top" id="Ilf-3T-IZa"/>
+                                        <constraint firstItem="BCq-Pm-HLE" firstAttribute="leading" secondItem="run-YU-aNZ" secondAttribute="leadingMargin" constant="15" id="fUd-sx-q1E"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -406,16 +409,16 @@
             </objects>
             <point key="canvasLocation" x="1898.5507246376812" y="36.830357142857139"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Post Table View Controller-->
         <scene sceneID="TRg-Ld-zZ4">
             <objects>
-                <tableViewController id="XfC-aI-z5N" sceneMemberID="viewController">
+                <tableViewController id="XfC-aI-z5N" customClass="PostTableViewController" customModule="FlashCards_Remade" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Frl-kb-RhI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="766" id="sTX-Bh-Fuk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="766" id="sTX-Bh-Fuk" customClass="PostTableViewCell" customModule="FlashCards_Remade" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="766"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sTX-Bh-Fuk" id="gMy-pQ-fkO">
@@ -429,11 +432,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z8m-UN-UcO">
-                                            <rect key="frame" x="20" y="47.5" width="374" height="617.5"/>
+                                            <rect key="frame" x="20" y="47.5" width="374" height="701.5"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="z8m-UN-UcO" secondAttribute="bottom" constant="90" id="KMQ-Vh-ew7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="z8m-UN-UcO" secondAttribute="bottom" constant="6" id="KMQ-Vh-ew7"/>
                                         <constraint firstItem="VsZ-Co-eoc" firstAttribute="trailing" secondItem="gMy-pQ-fkO" secondAttribute="trailingMargin" id="VSm-tT-q0j"/>
                                         <constraint firstItem="VsZ-Co-eoc" firstAttribute="leading" secondItem="gMy-pQ-fkO" secondAttribute="leadingMargin" id="cHn-w7-Ded"/>
                                         <constraint firstItem="z8m-UN-UcO" firstAttribute="trailing" secondItem="gMy-pQ-fkO" secondAttribute="trailingMargin" id="mzk-eL-e4E"/>
@@ -442,6 +445,10 @@
                                         <constraint firstItem="z8m-UN-UcO" firstAttribute="leading" secondItem="gMy-pQ-fkO" secondAttribute="leadingMargin" id="wFA-4L-mw4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postImageView" destination="z8m-UN-UcO" id="OCb-AC-YYu"/>
+                                    <outlet property="postTitleLabel" destination="VsZ-Co-eoc" id="1hk-yo-tF6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

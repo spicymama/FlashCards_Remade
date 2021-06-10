@@ -21,6 +21,5 @@ struct PostThirdLevelObject: Codable {
 }
 struct Post: Codable {
     let title: String
-    let ups: Int
     let thumbnail: String
 }

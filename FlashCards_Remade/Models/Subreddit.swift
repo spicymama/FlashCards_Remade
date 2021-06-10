@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CloudKit
 
 struct SubredditTopLevelObject: Codable {
     let data: SubredditSecondLevelObject
@@ -18,10 +19,9 @@ struct SubredditSecondLevelObject: Codable {
 struct SubredditThirdLevelObject: Codable {
     let data: Subreddit
     
-}
-//struct SubredditFourthLevelObject: Codable {
-   
+}   
 
 struct Subreddit: Codable {
     let display_name_prefixed: String
+   
 }

@@ -26,6 +26,8 @@
 		EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7426682D440056C97D /* DeckListTableViewController.swift */; };
 		EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */; };
 		EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */; };
+		EAB5C49C26718E530031E716 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C49B26718E530031E716 /* PostTableViewController.swift */; };
+		EAB5C49F26718F510031E716 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C49E26718F510031E716 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		EAB20C80266936F70056C97D /* FlashCards_Remade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashCards_Remade.entitlements; sourceTree = "<group>"; };
 		EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckNameTableViewCell.swift; sourceTree = "<group>"; };
+		EAB5C49B26718E530031E716 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
+		EAB5C49E26718F510031E716 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 			children = (
 				EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */,
 				EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */,
+				EAB5C49E26718F510031E716 /* PostTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				EAB20C7426682D440056C97D /* DeckListTableViewController.swift */,
 				EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */,
 				EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */,
+				EAB5C49B26718E530031E716 /* PostTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -261,7 +267,9 @@
 			files = (
 				EA870A76266EDE70005809AD /* StudyGoalTableViewController.swift in Sources */,
 				EAB20C64266818000056C97D /* CardController.swift in Sources */,
+				EAB5C49F26718F510031E716 /* PostTableViewCell.swift in Sources */,
 				EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */,
+				EAB5C49C26718E530031E716 /* PostTableViewController.swift in Sources */,
 				EA870A58266E8FAE005809AD /* PostController.swift in Sources */,
 				EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */,
 				EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */,
