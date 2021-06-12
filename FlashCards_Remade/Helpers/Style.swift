@@ -15,5 +15,4 @@ extension UIView {
         func addRoundedCorner(_ radius: CGFloat = 5) {
             self.layer.cornerRadius = radius
         }
-    
 }

@@ -14,16 +14,14 @@ class BreakTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-   
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        PostTableViewController.breakDate = Date()
-        PostTableViewController.breakDate =  PostTableViewController.breakDate.addingTimeInterval(breakTimer.countDownDuration)
-      
-       print("button works")
-        print( PostTableViewController.currentDate)
-        print( PostTableViewController.breakDate)
-       
-    }
     
-   
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        PostFeedViewController.breakDate = Date()
+        PostFeedViewController.breakDate =  PostFeedViewController.breakDate.addingTimeInterval(breakTimer.countDownDuration)
+        
+        print("button works")
+        print( PostFeedViewController.currentDate)
+        print( PostFeedViewController.breakDate)
+        
+    }
 }

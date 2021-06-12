@@ -14,6 +14,7 @@ class FlashCardViewController: UIViewController {
     static let shared = FlashCardViewController()
     @IBOutlet weak var deckNameLabel: UINavigationItem!
     @IBOutlet weak var questionOrAnswerLabel: UILabel!
+    @IBOutlet weak var textViewView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var breakTimeButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -26,7 +27,6 @@ class FlashCardViewController: UIViewController {
         updateViews()
         addStyle()
         timer =  Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
-            
             if Date()  >= FlashCardViewController.futureDate {
                 timer.invalidate()
                 self.timer = nil
@@ -42,12 +42,11 @@ class FlashCardViewController: UIViewController {
             super.viewDidAppear(true)
             breakTimeButton.isHidden = true
             self.timer =  Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
-                
                 if Date()  >= FlashCardViewController.futureDate {
                     timer.invalidate()
                     self.timer = nil
                     self.breakTimeButton.isHidden = false
-                if Date()  < FlashCardViewController.futureDate {
+                    if Date()  < FlashCardViewController.futureDate {
                         self.breakTimeButton.isHidden = true
                     }
                 }
@@ -55,22 +54,18 @@ class FlashCardViewController: UIViewController {
                 print(FlashCardViewController.futureDate)
             }
         }
-
     }
     func addStyle() {
         questionOrAnswerLabel.addCornerRadius()
         textView.addCornerRadius()
         breakTimeButton.addCornerRadius()
         nextButton.addCornerRadius()
+        textViewView.addCornerRadius()
     }
-    
-    
     
     @IBAction func breakButtonWasTapped(_ sender: Any) {
         FlashCardViewController.futureDate = Date()
-    
     }
-    
     
     var deckToSend: String?
     var currentCard: Card?
@@ -91,27 +86,21 @@ class FlashCardViewController: UIViewController {
                     print(success)
                     self.nextButtonTapped(success)
                 case .failure(let error):
-                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
         }
         self.updateViews()
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
-        
         randomCard()
         guard let card = currentCard else {return}
-        
         self.questionOrAnswerLabel.text = "Question:"
         self.textView.text = "\(card.question)"
-    
     }
     @IBAction func cardTapped(_ sender: Any) {
-       flipCard()
-        
+        flipCard()
     }
-    
-    
     
     func updateViews() {
         guard let card = currentCard else {return}
@@ -134,28 +123,16 @@ class FlashCardViewController: UIViewController {
     }
     
     func randomCard()-> Card {
-        
         var cards: [Card] = []
+        
         for card in CardController.shared.cards {
             if card.deck == deckToSend && card != previousCard{
                 cards.append(card)
             }
-            
             nextCard = cards.randomElement()
             currentCard = nextCard
             previousCard = currentCard
- 
         }
         return currentCard ?? CardController.shared.defaultCard
     }
-    
-    /*
-    func showBreakButton() {
-        if isItBreakTime == false {
-            breakTimeButton.isHidden = true
-        }
-        if isItBreakTime == true {
-            breakTimeButton.isHidden = false
-        }
-    }*/
 }
