@@ -11,10 +11,15 @@ class CreateCardsViewController: UIViewController {
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
     @IBOutlet weak var deckNameTextField: UITextField!
+    @IBOutlet weak var deckNameLabel: UITextField!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var addCardButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addStyle()
         self.loadViewIfNeeded()
 
     }
@@ -55,12 +60,19 @@ class CreateCardsViewController: UIViewController {
         }
  
     }
-    @IBAction func answerImageButtonTapped(_ sender: Any) {
-    }
-    @IBAction func questionImageButtonTapped(_ sender: Any) {
-    }
+   
     
-    
+    func addStyle() {
+        deckNameLabel.addCornerRadius()
+        questionLabel.addRoundedCorner()
+        answerLabel.addRoundedCorner()
+        questionTextField.addCornerRadius()
+        answerTextField.addCornerRadius()
+        deckNameTextField.addCornerRadius()
+        addCardButton.addCornerRadius()
+        deckNameTextField.attributedPlaceholder = NSAttributedString(string: "Deck name here...",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    }
     
 
 }

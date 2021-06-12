@@ -15,9 +15,10 @@ class PostTableViewCell: UITableViewCell {
     var post: Post? {
         didSet {
             updateViews()
+            postImageView.addCornerRadius()
+            postTitleLabel.addCornerRadius()
         }
     }
-    
     
     
     //MARK: - Functions
@@ -25,7 +26,8 @@ class PostTableViewCell: UITableViewCell {
         
         guard let post = post else {return}
         
-        postTitleLabel.text = post.title
+        postTitleLabel.text = ".\n.\n\(post.title)\n.\n."
+    
         
         PostController.fetchThumbNail(post: post) { (result) in
             DispatchQueue.main.async {
@@ -33,16 +35,14 @@ class PostTableViewCell: UITableViewCell {
                 switch result {
                 case .success(let thumbnail):
                     self.postImageView.image = thumbnail
+                   
+                   
                 case .failure(let error):
                     self.postImageView.image = UIImage(named: "ImageNotAvailible")
                      print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 }
             }
         }
-        
     }
-   
-    
-    
     
 }

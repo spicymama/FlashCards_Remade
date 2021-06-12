@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1067152673D12B0071C491 /* BreakTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1067142673D12B0071C491 /* BreakTimerViewController.swift */; };
+		EA1067182673E4200071C491 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1067172673E4200071C491 /* Style.swift */; };
+		EA20BCFA26750AB80057705D /* PostFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20BCF926750AB80057705D /* PostFeedViewController.swift */; };
 		EA870A55266E8F5B005809AD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A54266E8F5B005809AD /* Post.swift */; };
 		EA870A58266E8FAE005809AD /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A57266E8FAE005809AD /* PostController.swift */; };
 		EA870A5B266E9625005809AD /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A5A266E9625005809AD /* PostError.swift */; };
 		EA870A5F266E9931005809AD /* Subreddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A5E266E9931005809AD /* Subreddit.swift */; };
 		EA870A62266EAAB3005809AD /* SubredditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */; };
-		EA870A76266EDE70005809AD /* StudyGoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */; };
+		EA870A76266EDE70005809AD /* SubredditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA870A75266EDE70005809AD /* SubredditTableViewController.swift */; };
 		EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C36266811FD0056C97D /* AppDelegate.swift */; };
 		EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C38266811FD0056C97D /* SceneDelegate.swift */; };
 		EAB20C3E266811FD0056C97D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB20C3C266811FD0056C97D /* Main.storyboard */; };
@@ -28,15 +31,21 @@
 		EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */; };
 		EAB5C49C26718E530031E716 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C49B26718E530031E716 /* PostTableViewController.swift */; };
 		EAB5C49F26718F510031E716 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C49E26718F510031E716 /* PostTableViewCell.swift */; };
+		EAB5C4A326726F9D0031E716 /* SubredditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C4A226726F9D0031E716 /* SubredditController.swift */; };
+		EAB5C4A82672AD880031E716 /* TimerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C4A72672AD870031E716 /* TimerTableViewController.swift */; };
+		EAB5C4AD2672C3110031E716 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5C4AC2672C3110031E716 /* TimerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA1067142673D12B0071C491 /* BreakTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimerViewController.swift; sourceTree = "<group>"; };
+		EA1067172673E4200071C491 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		EA20BCF926750AB80057705D /* PostFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeedViewController.swift; sourceTree = "<group>"; };
 		EA870A54266E8F5B005809AD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EA870A57266E8FAE005809AD /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		EA870A5A266E9625005809AD /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		EA870A5E266E9931005809AD /* Subreddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subreddit.swift; sourceTree = "<group>"; };
 		EA870A61266EAAB3005809AD /* SubredditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditTableViewCell.swift; sourceTree = "<group>"; };
-		EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGoalTableViewController.swift; sourceTree = "<group>"; };
+		EA870A75266EDE70005809AD /* SubredditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditTableViewController.swift; sourceTree = "<group>"; };
 		EAB20C33266811FD0056C97D /* FlashCards_Remade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCards_Remade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB20C36266811FD0056C97D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB20C38266811FD0056C97D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +64,9 @@
 		EAB20C82266941270056C97D /* DeckNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckNameTableViewCell.swift; sourceTree = "<group>"; };
 		EAB5C49B26718E530031E716 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		EAB5C49E26718F510031E716 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		EAB5C4A226726F9D0031E716 /* SubredditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditController.swift; sourceTree = "<group>"; };
+		EAB5C4A72672AD870031E716 /* TimerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewController.swift; sourceTree = "<group>"; };
+		EAB5C4AC2672C3110031E716 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +173,11 @@
 				EAB20C6C266822A50056C97D /* CreateCardsViewController.swift */,
 				EAB20C7426682D440056C97D /* DeckListTableViewController.swift */,
 				EAB20C7A26682D7E0056C97D /* FlashCardViewController.swift */,
-				EA870A75266EDE70005809AD /* StudyGoalTableViewController.swift */,
+				EA870A75266EDE70005809AD /* SubredditTableViewController.swift */,
 				EAB5C49B26718E530031E716 /* PostTableViewController.swift */,
+				EAB5C4A72672AD870031E716 /* TimerTableViewController.swift */,
+				EA1067142673D12B0071C491 /* BreakTimerViewController.swift */,
+				EA20BCF926750AB80057705D /* PostFeedViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -172,6 +187,8 @@
 			children = (
 				EAB20C63266818000056C97D /* CardController.swift */,
 				EA870A57266E8FAE005809AD /* PostController.swift */,
+				EAB5C4A226726F9D0031E716 /* SubredditController.swift */,
+				EAB5C4AC2672C3110031E716 /* TimerController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 			children = (
 				EAB20C6826681C650056C97D /* CardError.swift */,
 				EA870A5A266E9625005809AD /* PostError.swift */,
+				EA1067172673E4200071C491 /* Style.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -265,23 +283,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA870A76266EDE70005809AD /* StudyGoalTableViewController.swift in Sources */,
+				EA870A76266EDE70005809AD /* SubredditTableViewController.swift in Sources */,
 				EAB20C64266818000056C97D /* CardController.swift in Sources */,
 				EAB5C49F26718F510031E716 /* PostTableViewCell.swift in Sources */,
+				EA20BCFA26750AB80057705D /* PostFeedViewController.swift in Sources */,
 				EAB20C7526682D440056C97D /* DeckListTableViewController.swift in Sources */,
 				EAB5C49C26718E530031E716 /* PostTableViewController.swift in Sources */,
+				EAB5C4A82672AD880031E716 /* TimerTableViewController.swift in Sources */,
 				EA870A58266E8FAE005809AD /* PostController.swift in Sources */,
 				EAB20C7B26682D7E0056C97D /* FlashCardViewController.swift in Sources */,
 				EAB20C37266811FD0056C97D /* AppDelegate.swift in Sources */,
 				EA870A5F266E9931005809AD /* Subreddit.swift in Sources */,
 				EAB20C5E266813A40056C97D /* Card.swift in Sources */,
+				EA1067152673D12B0071C491 /* BreakTimerViewController.swift in Sources */,
 				EA870A5B266E9625005809AD /* PostError.swift in Sources */,
 				EAB20C6926681C650056C97D /* CardError.swift in Sources */,
+				EAB5C4A326726F9D0031E716 /* SubredditController.swift in Sources */,
 				EAB20C83266941270056C97D /* DeckNameTableViewCell.swift in Sources */,
 				EA870A62266EAAB3005809AD /* SubredditTableViewCell.swift in Sources */,
 				EA870A55266E8F5B005809AD /* Post.swift in Sources */,
+				EAB5C4AD2672C3110031E716 /* TimerController.swift in Sources */,
 				EAB20C6D266822A50056C97D /* CreateCardsViewController.swift in Sources */,
 				EAB20C39266811FD0056C97D /* SceneDelegate.swift in Sources */,
+				EA1067182673E4200071C491 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

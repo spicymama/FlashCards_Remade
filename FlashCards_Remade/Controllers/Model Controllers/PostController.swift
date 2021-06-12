@@ -10,46 +10,12 @@ import UIKit
 
 class PostController {
     static let shared = PostController()
-    var subredditList: [String] = [].sorted { $0.lowercased() < $1.lowercased() }
-    
-    static func fetchSubreddits(completion: @escaping (Result<[String], PostError>)-> Void) {
-        let baseURL = URL(string: "https://www.reddit.com/subreddits/popular/.json")
-        
-        guard let finalURL = baseURL else {return completion(.failure(.invalidURL))}
-        URLSession.shared.dataTask(with: finalURL) { (data, response, error) in
-            
-            if let error = error {
-                return completion(.failure(.thrownError(error)))
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                print("POST STATUS CODE: \(response.statusCode)")
-            }
-            guard let data = data else {return completion(.failure(.noData))}
-            do {
-                let topLevelObject = try JSONDecoder().decode(SubredditTopLevelObject.self, from: data)
-                let secondLevelObject = topLevelObject.data
-                let thirdLevelObject = secondLevelObject.children
-                
-
-                for i in thirdLevelObject {
-                    let subreddit = i.data.display_name_prefixed
-                
-                    PostController.shared.subredditList.append(subreddit)
-                        print(subreddit)
-                }
-                completion(.success(PostController.shared.subredditList.sorted { $0.lowercased() < $1.lowercased() }))
-                
-            } catch {
-                completion(.failure(.thrownError(error)))
-                
-            }
-        }.resume()
-    }
+    static var subs: String = ""
+    static var height: Double?
     
     static func fetchPosts(completion: @escaping (Result<[Post], PostError>) -> Void) {
-        let subs = StudyGoalTableViewController.shared.selectedSubs.randomElement()
-        let sub = (subs ?? "r/memes") + "/.json"
+       
+        let sub = (subs ) + "/.json"
         let baseURL = URL(string: "https://www.reddit.com/")
         
         guard let finalURL = baseURL?.appendingPathComponent(sub) else {return completion(.failure(.invalidURL))}
@@ -77,7 +43,7 @@ class PostController {
                 for i in thirdLevelObject {
                     let post = i.data
                     arrayOfPosts.append(post)
-                    
+                
                 }
                 completion(.success(arrayOfPosts))
                 
@@ -90,8 +56,8 @@ class PostController {
     }
     static func fetchThumbNail(post: Post, completion: @escaping (Result<UIImage, PostError>)-> Void) {
         
-        guard let thumbNailURL = URL(string: post.thumbnail) else {return completion(.failure(.invalidURL))}
-        
+        guard let thumbNailURL = URL(string: post.url ?? "www.reddit.com") else {return completion(.failure(.invalidURL))}
+       
         URLSession.shared.dataTask(with: thumbNailURL) { (data, response, error) in
             
             if let error = error {
@@ -109,3 +75,26 @@ class PostController {
         }.resume()
     }
 }
+
+
+
+
+/*
+ 
+ r/AdviceAnimals
+ r/aww
+ r/blessedimages
+ r/cats
+ r/dankmemes
+ r/dogpictures
+ r/funny
+ r/LifeProTips
+ r/me_irl
+ r/memes
+ r/mildlyinteresting
+ r/NatureIsFuckingLit
+ r/pics
+ r/ProgrammerHumor
+ r/Showerthoughts
+ 
+ */

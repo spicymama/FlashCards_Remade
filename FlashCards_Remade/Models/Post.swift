@@ -18,8 +18,12 @@ struct PostSecondLevelObject: Codable {
 
 struct PostThirdLevelObject: Codable {
     let data: Post
+    
 }
+
 struct Post: Codable {
     let title: String
-    let thumbnail: String
+    let url: String
+    
 }
+

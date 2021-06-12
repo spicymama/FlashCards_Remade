@@ -13,6 +13,12 @@ class DeckListTableViewController: UITableViewController {
         super.viewDidLoad()
         setupViews()
         loadData()
+      //  FlashCardViewController.shared.timer?.invalidate()
+       // FlashCardViewController.shared.timer = nil
+      //  FlashCardViewController.shared.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            
+      //  }
+        //self.tableView.backgroundColor = UIColor.lightGray
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,6 +56,7 @@ class DeckListTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
+ 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(CardController.shared.deckNames.count)
@@ -71,6 +78,7 @@ class DeckListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
             var cardsToDelete: [Card] = []
             for card in CardController.shared.cards {
                 if card.deck == CardController.shared.deckNames[indexPath.row] {
@@ -79,18 +87,18 @@ class DeckListTableViewController: UITableViewController {
             }
             for card in cardsToDelete {
 
-                CardController.shared.deleteCard(card: card) { (result) in
+                let index = CardController.shared.deckNames.firstIndex(of: card.deck) ?? 0
+                CardController.shared.deleteDeck(card: card) { (result) in
                     
                     DispatchQueue.main.async {
                         switch result {
                         case .success(let success):
                             print(success)
-                          CardController.shared.deckNames = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }
-                            if !CardController.shared.deckNames.contains(card.deck) {
-                                tableView.deleteRows(at: [indexPath], with: .fade)
+                            if cardsToDelete.count == 0 && CardController.shared.deckNames.contains(card.deck) {
+                                CardController.shared.deckNames.remove(at: index)
+                                self.tableView.deleteRows(at: [indexPath], with: .fade)
                                 self.setupViews()
                             }
-                            
                           
                         case .failure(let error):
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -99,6 +107,7 @@ class DeckListTableViewController: UITableViewController {
                 }
             }
         }
+        self.tableView.reloadData()
     }
     
     
