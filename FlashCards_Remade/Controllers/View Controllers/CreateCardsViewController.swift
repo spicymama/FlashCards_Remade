@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import QuartzCore
 
 class CreateCardsViewController: UIViewController {
-    @IBOutlet weak var questionTextField: UITextField!
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var answerTextView: UITextView!
+    
     @IBOutlet weak var deckNameTextField: UITextField!
     @IBOutlet weak var deckNameLabel: UITextField!
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answerLabel: UILabel!
+    
+    @IBOutlet weak var questionLabel: UIButton!
+    @IBOutlet weak var answerLabel: UIButton!
+    
+    
     @IBOutlet weak var addCardButton: UIButton!
     
     override func viewDidLoad() {
@@ -25,15 +30,15 @@ class CreateCardsViewController: UIViewController {
     //MARK: - Functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let question = questionTextField.text, !question.isEmpty,
-              let answer = answerTextField.text, !answer.isEmpty,
+        guard let question = questionTextView.text, !question.isEmpty,
+              let answer = answerTextView.text, !answer.isEmpty,
               let deck = deckNameTextField.text, !deck.isEmpty
         else {return}
         
         CardController.shared.createCard(question: question, answer: answer, deck: deck) { result in
             DispatchQueue.main.async {
-                self.questionTextField.text = ""
-                self.answerTextField.text = ""
+                self.questionTextView.text = ""
+                self.answerTextView.text = ""
                 self.navigationController?.popViewController(animated: true)
             }
             if !CardController.shared.deckNames.contains(deck) {
@@ -43,27 +48,26 @@ class CreateCardsViewController: UIViewController {
         }
     }
     @IBAction func nextButtonTapped(_ sender: Any) {
-        guard let question = questionTextField.text, !question.isEmpty,
-              let answer = answerTextField.text, !answer.isEmpty,
+        guard let question = questionTextView.text, !question.isEmpty,
+              let answer = answerTextView.text, !answer.isEmpty,
               let deck = deckNameTextField.text, !deck.isEmpty
         else {return}
         CardController.shared.createCard(question: question, answer: answer, deck: deck) { result in
             DispatchQueue.main.async {
-                self.questionTextField.text = ""
-                self.answerTextField.text = ""
+                self.questionTextView.text = ""
+                self.answerTextView.text = ""
             }
         }
     }
     
     func addStyle() {
         deckNameLabel.addCornerRadius()
-        questionLabel.addRoundedCorner()
-        self.questionLabel.addCornerRadius(5)
-        answerLabel.addRoundedCorner()
-        questionTextField.addCornerRadius()
-        answerTextField.addCornerRadius()
+        questionLabel.addCornerRadius(4)
+        answerLabel.addCornerRadius(4)
+        questionTextView.addCornerRadius()
+        answerTextView.addCornerRadius()
         deckNameTextField.addCornerRadius()
         addCardButton.addCornerRadius()
-        deckNameTextField.attributedPlaceholder = NSAttributedString(string: "Deck name here...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        deckNameTextField.attributedPlaceholder = NSAttributedString(string: "deck name here...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 }

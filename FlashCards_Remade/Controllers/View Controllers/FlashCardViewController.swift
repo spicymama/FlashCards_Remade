@@ -23,6 +23,7 @@ class FlashCardViewController: UIViewController {
         super.viewDidLoad()
         nextButtonTapped((Any).self)
         nextButtonTapped((Any).self)
+        deckNameLabel.title = currentCard?.deck
         breakTimeButton.isHidden = true
         updateViews()
         addStyle()
