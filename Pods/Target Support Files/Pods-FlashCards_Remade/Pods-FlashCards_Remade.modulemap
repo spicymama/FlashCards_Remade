@@ -1,0 +1,6 @@
+framework module Pods_FlashCards_Remade {
+  umbrella header "Pods-FlashCards_Remade-umbrella.h"
+
+  export *
+  module * { export * }
+}

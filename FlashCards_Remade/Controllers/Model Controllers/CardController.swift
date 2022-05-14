@@ -51,37 +51,34 @@ class CardController {
         let deck = card.deck
         for card in CardController.shared.cards {
             if card.deck == deck {
-                cardsToDelete.append(card)
+                let deleteOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [card.recordID])
+                deleteOperation.savePolicy = .changedKeys
+                deleteOperation.qualityOfService = .userInteractive
+                deleteOperation.modifyRecordsCompletionBlock = { (records, _, error) in
+                    
+                    if let error = error {
+                        print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        return completion(.failure(.ckError(error)))
+                    }
+                    if records?.count == 0 {
+                        print("Deleted records from CloudKit")
+                        completion(.success(true))
+                    } else {
+                        return completion(.failure(.unexpectedRecordsFound))
+                    }
+                }
+                privateDB.add(deleteOperation)
             }
         }
-        for card in cardsToDelete {
-            let deleteOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [card.recordID])
-            deleteOperation.savePolicy = .changedKeys
-            deleteOperation.qualityOfService = .userInteractive
-            deleteOperation.modifyRecordsCompletionBlock = { (records, _, error) in
-                
-                if let error = error {
-                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                    return completion(.failure(.ckError(error)))
-                }
-                if records?.count == 0 {
-                    print("Deleted records from CloudKit")
-                    completion(.success(true))
-                    
-                    guard let  deckToDelete = CardController.shared.deckNames.sorted(by: { $0.lowercased() < $1.lowercased() }).firstIndex(of: deck) else {return}
-                    if self.deckNames.contains(deck) && self.cardsToDelete.count == 0 {
-                        self.deckIndex = [deckToDelete]
-                        self.deckNames.remove(at: deckToDelete)
-                        self.deckNames = self.deckNames.sorted { $0.lowercased() < $1.lowercased() }
-                    }
-                } else {
-                    return completion(.failure(.unexpectedRecordsFound))
-                }
-            }
-            privateDB.add(deleteOperation)
+        guard let  deckToDelete = CardController.shared.deckNames.sorted(by: { $0.lowercased() < $1.lowercased() }).firstIndex(of: deck) else {return}
+        if self.deckNames.contains(deck) && self.cardsToDelete.count == 0 {
+            self.deckIndex = [deckToDelete]
+            self.deckNames.remove(at: deckToDelete)
+            self.deckNames = self.deckNames.sorted { $0.lowercased() < $1.lowercased() }
         }
         cardsToDelete = []
     }
+    
     
     func deleteCard(card: Card, completion: @escaping (Result<Bool, CardError>)-> Void) {
         guard let index = CardController.shared.cards.firstIndex(of: card) else {return}
@@ -105,11 +102,10 @@ class CardController {
         }
         privateDB.add(deleteOperation)
     }
-    
     func fetchCards(completion: @escaping (_ result: Result<[Card]?, CardError>)-> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CardStrings.recordTypeKey, predicate: predicate)
-        
+        print(privateDB)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             
             if let error = error {
@@ -121,7 +117,7 @@ class CardController {
             print(CardController.shared.cards.count)
             
             
-            let fetchedCards = records.compactMap({Card(ckRecord: $0) })
+            let fetchedCards = records.compactMap({Card(ckRecord: $0)})
             self.cards = fetchedCards
             
             print("we got \(self.cards.count) cards")

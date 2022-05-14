@@ -23,7 +23,7 @@ class FlashCardViewController: UIViewController {
         super.viewDidLoad()
         nextButtonTapped((Any).self)
         nextButtonTapped((Any).self)
-        deckNameLabel.title = currentCard?.deck
+        deckNameLabel.title = currentCard.deck
         breakTimeButton.isHidden = true
         updateViews()
         addStyle()
@@ -36,8 +36,6 @@ class FlashCardViewController: UIViewController {
                     self.breakTimeButton.isHidden = true
                 }
             }
-            print(Date())
-            print(FlashCardViewController.futureDate)
         }
         func viewDidAppear(animated: Bool) {
             super.viewDidAppear(true)
@@ -51,13 +49,14 @@ class FlashCardViewController: UIViewController {
                         self.breakTimeButton.isHidden = true
                     }
                 }
-                print(Date())
-                print(FlashCardViewController.futureDate)
             }
         }
     }
+    
+   
     func addStyle() {
-        questionOrAnswerLabel.addCornerRadius()
+        questionOrAnswerLabel.layer.masksToBounds = true
+        questionOrAnswerLabel.layer.cornerRadius = 15
         textView.addCornerRadius()
         breakTimeButton.addCornerRadius()
         nextButton.addCornerRadius()
@@ -69,16 +68,16 @@ class FlashCardViewController: UIViewController {
     }
     
     var deckToSend: String?
-    var currentCard: Card?
-    var previousCard: Card?
-    var nextCard: Card?
+    var currentCard: Card = CardController.shared.defaultCard
+    var previousCard: Card = CardController.shared.defaultCard
+    var nextCard: Card = CardController.shared.defaultCard
     var isItBreakTime: Bool = false
     var timer: Timer?
     
     static var futureDate = Date()
     
     @IBAction func previousButtonTapped(_ sender: Any) {
-        CardController.shared.deleteCard(card: currentCard ?? CardController.shared.defaultCard) { (result) in
+        CardController.shared.deleteCard(card: currentCard ) { (result) in
             
             DispatchQueue.main.async {
                 switch result {
@@ -93,18 +92,20 @@ class FlashCardViewController: UIViewController {
         }
         self.updateViews()
     }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         randomCard()
-        guard let card = currentCard else {return}
+        let card = currentCard
         self.questionOrAnswerLabel.text = "Question:"
         self.textView.text = "\(card.question)"
     }
+    
     @IBAction func cardTapped(_ sender: Any) {
         flipCard()
     }
     
     func updateViews() {
-        guard let card = currentCard else {return}
+        let card = currentCard
         DispatchQueue.main.async {
             self.questionOrAnswerLabel.text = "Question:"
             self.textView.text = card.question
@@ -115,25 +116,43 @@ class FlashCardViewController: UIViewController {
     func flipCard() {
         if self.questionOrAnswerLabel.text == "Question:" {
             self.questionOrAnswerLabel.text = "Answer:"
-            self.textView.text = currentCard?.answer
+            self.textView.text = currentCard.answer
         }
         else {
             self.questionOrAnswerLabel.text = "Question:"
-            self.textView.text = currentCard?.question
+            self.textView.text = currentCard.question
         }
     }
     
-    func randomCard()-> Card {
+    func randomCard()-> Void {
         var cards: [Card] = []
-        
+        var usedCards: [Card] = []
         for card in CardController.shared.cards {
             if card.deck == deckToSend && card != previousCard{
                 cards.append(card)
             }
-            nextCard = cards.randomElement()
-            currentCard = nextCard
+            if cards != [] {
+            nextCard = cards[0]
             previousCard = currentCard
+            currentCard = nextCard
+            guard let index = cards.firstIndex(of: previousCard ) else {return}
+            usedCards.append(previousCard )
+            cards.remove(at: index)
+            }
+            if cards == [] {
+                cards.append(contentsOf: usedCards)
+                usedCards = []
+            }
         }
-        return currentCard ?? CardController.shared.defaultCard
+        return
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editDeck" {
+            guard let destinationVC = segue.destination as? CreateCardsViewController else {return}
+            
+            destinationVC.deckName = currentCard.deck
+        }
     }
 }
+

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PostTopLevelObject: Codable {
     
@@ -24,6 +25,20 @@ struct PostThirdLevelObject: Codable {
 struct Post: Codable {
     let title: String
     let url: String
-    
+    let over_18: Bool
+    let is_video: Bool
 }
+
+struct VideoPost {
+    let title: String
+    let url: String
+    let over_18: Bool
+}
+
+/*
+ youtube videos
+ gifs
+ albums
+ articles
+ */
 

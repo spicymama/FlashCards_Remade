@@ -6,20 +6,22 @@
 //
 
 import UIKit
+import YouTubePlayer
 
-class PostFeedViewController: UIViewController {
+class PostFeedViewController: UIViewController, YouTubePlayerDelegate {
     static let shared = PostFeedViewController()
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var troubleLoadingImageLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var playerView: YouTubePlayerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPostsForTableView()
         nextButton.addRoundedCorner()
-      //  postImageView.addCornerRadius()
+        postImageView.addCornerRadius()
         self.postImageView.layer.cornerRadius = self.postImageView.frame.width/12.0
         
         timer =  Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
@@ -33,8 +35,6 @@ class PostFeedViewController: UIViewController {
                     FlashCardViewController.shared.timer = timer
                 }
             }
-            print(Date())
-            print(PostFeedViewController.breakDate)
         }
     }
     
@@ -69,22 +69,49 @@ class PostFeedViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let post = posts.randomElement() else {return}
-        titleLabel.text = "\(post.title)"
+        guard let post = posts.first else {return}
+        if post.url.contains("youtube") || post.url.contains("youtu.be") {
+            DispatchQueue.main.async {
+                
+            guard let url = URL(string: post.url) else {return}
+            self.playerView.isHidden = false
+            self.titleLabel.text = post.title
+            
+            self.playerView.delegate = self
+            self.playerView.loadVideoURL(url)
+            if self.playerView.ready == true {
+                self.troubleLoadingImageLabel.isHidden = true
+                self.playerView.play()
+                }
+                self.posts.remove(at: 0)
+            }
+        } else {
         PostController.fetchThumbNail(post: post) { (result) in
+       
             DispatchQueue.main.async {
                 
                 switch result {
                 case .success(let thumbnail):
+                    self.playerView.isHidden = true
+                    self.titleLabel.text = "\(post.title)"
                     self.postImageView.image = thumbnail
                     self.troubleLoadingImageLabel.isHidden = true
                     
                     
                 case .failure(let error):
-                    self.troubleLoadingImageLabel.isHidden = false
+                     print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                     self.postImageView.image = nil
-                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    self.troubleLoadingImageLabel.isHidden = false
+                    
+                    self.updateViews()
+                   
                 }
+            }
+           
+            self.posts.remove(at: 0)
+            if self.posts.count == 0 {
+                self.fetchPostsForTableView()
+            }
             }
         }
     }

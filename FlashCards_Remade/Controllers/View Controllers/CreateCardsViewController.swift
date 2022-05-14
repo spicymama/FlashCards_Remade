@@ -9,16 +9,12 @@ import UIKit
 import QuartzCore
 
 class CreateCardsViewController: UIViewController {
+    static let shared = CreateCardsViewController()
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
-    
     @IBOutlet weak var deckNameTextField: UITextField!
-    @IBOutlet weak var deckNameLabel: UITextField!
-    
     @IBOutlet weak var questionLabel: UIButton!
     @IBOutlet weak var answerLabel: UIButton!
-    
-    
     @IBOutlet weak var addCardButton: UIButton!
     
     override func viewDidLoad() {
@@ -26,7 +22,7 @@ class CreateCardsViewController: UIViewController {
         addStyle()
         self.loadViewIfNeeded()
     }
-    
+    var deckName: String = ""
     //MARK: - Functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -61,13 +57,18 @@ class CreateCardsViewController: UIViewController {
     }
     
     func addStyle() {
-        deckNameLabel.addCornerRadius()
         questionLabel.addCornerRadius(4)
         answerLabel.addCornerRadius(4)
         questionTextView.addCornerRadius()
         answerTextView.addCornerRadius()
         deckNameTextField.addCornerRadius()
         addCardButton.addCornerRadius()
+        if deckName == "" {
         deckNameTextField.attributedPlaceholder = NSAttributedString(string: "deck name here...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            print(deckName)
+        } else {
+            deckNameTextField.text = deckName
+            print(deckName)
+        }
     }
 }
