@@ -26,19 +26,7 @@ struct Post: Codable {
     let title: String
     let url: String
     let over_18: Bool
-    let is_video: Bool
+    let is_reddit_media_domain: Bool
 }
 
-struct VideoPost {
-    let title: String
-    let url: String
-    let over_18: Bool
-}
-
-/*
- youtube videos
- gifs
- albums
- articles
- */
 

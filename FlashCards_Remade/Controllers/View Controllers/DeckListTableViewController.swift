@@ -58,7 +58,11 @@ class DeckListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "deckCell", for: indexPath) as? DeckNameTableViewCell else {return UITableViewCell()}
         setupViews()
         let deck = CardController.shared.deckNames.sorted { $0.lowercased() < $1.lowercased() }[indexPath.item]
-        cell.deck = deck
+        if deck.count > 0 {
+            cell.deck = deck
+        } else {
+            cell.deck = "No Decks Saved..."
+        }
         
         return cell
     }

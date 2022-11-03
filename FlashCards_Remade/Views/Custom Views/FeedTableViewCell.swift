@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 import AVFoundation
-
+/*
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -48,3 +48,4 @@ class FeedTableViewCell: UITableViewCell {
     }
 
 }
+*/

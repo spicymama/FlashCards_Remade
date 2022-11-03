@@ -7,13 +7,14 @@
 
 import UIKit
 import YouTubePlayer
+import MobileCoreServices
 
 
 class PostController {
     static let shared = PostController()
     static var subs: String = ""
     static var height: Double?
-    
+   
     static func fetchPosts(completion: @escaping (Result<[Post], PostError>) -> Void) {
         let sub = (subs ) + "/.json"
         let baseURL = URL(string: "https://www.reddit.com")
@@ -44,9 +45,12 @@ class PostController {
                         videoPosts.append(VideoPost(title: post.title, url: post.url, over_18: post.over_18))
                     }
                      */
-                    if post.over_18 == false{
-                    arrayOfPosts.append(post)
-                        print(post.url)
+                    if post.over_18 == false {
+                        if PostController.mimeTypeForPath(path: post.url).contains("image") || PostController.mimeTypeForPath(path: post.url).contains("mp4") || post.url.contains("youtube") || post.url.contains("youtu.be") {
+                            
+                            arrayOfPosts.append(post)
+                            print(post.url)
+                        }
                     }
                 }
                 completion(.success(arrayOfPosts))
@@ -72,6 +76,17 @@ class PostController {
             
             completion(.success(thumbnail))
         }.resume()
+    }
+    static func mimeTypeForPath(path: String) -> String {
+        let url = NSURL(fileURLWithPath: path)
+        let pathExtension = url.pathExtension
+
+        if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension! as NSString, nil)?.takeRetainedValue() {
+            if let mimetype = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() {
+                return mimetype as String
+            }
+        }
+        return "application/octet-stream"
     }
     
 }

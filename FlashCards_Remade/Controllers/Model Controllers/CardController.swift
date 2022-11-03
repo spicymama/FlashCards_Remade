@@ -16,7 +16,7 @@ class CardController {
     var cardsToDelete: [Card] = []
     var deckNames: [String] = [].sorted { $0.lowercased() < $1.lowercased() }
     var deckIndex: IndexPath = [0]
-    var defaultCard = Card(question: "Default", answer: "Default", deck: "Default")
+    var defaultCard = Card(question: "This deck currently has no cards", answer: "This deck currently has no cards", deck: "Empty Deck")
     let privateDB = CKContainer.default().privateCloudDatabase
     
     

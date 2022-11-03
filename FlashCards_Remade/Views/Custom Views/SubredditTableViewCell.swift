@@ -22,6 +22,5 @@ class SubredditTableViewCell: UITableViewCell {
     
     @IBAction func subredditCellButtonTapped(_ sender: Any) {
         PostController.subs = self.textLabel?.text ?? "r/memes"
-        print("button works")
     }
 }

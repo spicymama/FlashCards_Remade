@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/*
 class FeedTableViewController: UITableViewController {
     var refresh: UIRefreshControl = UIRefreshControl()
     static let shared = FeedTableViewController()
@@ -107,3 +107,4 @@ class FeedTableViewController: UITableViewController {
        
     }
 }
+*/

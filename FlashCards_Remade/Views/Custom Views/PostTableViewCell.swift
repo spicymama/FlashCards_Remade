@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/*
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postTitleLabel: UILabel!
@@ -38,3 +38,4 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 }
+*/
