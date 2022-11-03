@@ -41,9 +41,9 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        playerView.isHidden = true
-        self.postImageView.stopAnimating()
-        self.postImageView.animationImages = []
+       // playerView.isHidden = true
+       // self.postImageView.stopAnimating()
+       // self.postImageView.animationImages = []
         updateViews()
     }
     
@@ -133,7 +133,8 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
         }
     }
     func loadRedditGif(url: String) {
-        let gifImageView = self.postImageView
+        guard let gifImageView = self.postImageView else { return }
+        gifImageView.animationDuration = gifImageView.animationDuration * 2
         guard let url = URL(string: url) else {return}
         
         DispatchQueue.global(qos: .userInteractive).async {
@@ -148,9 +149,9 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
                 }
             }
             DispatchQueue.main.async {
-                gifImageView?.animationImages = images
-                if gifImageView?.animationImages?.count != 0 {
-                    gifImageView?.startAnimating()
+                gifImageView.animationImages = images
+                if gifImageView.animationImages?.count != 0 {
+                    gifImageView.startAnimating()
                     return
                 }
             }
