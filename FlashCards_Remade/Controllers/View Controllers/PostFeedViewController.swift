@@ -22,9 +22,9 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         troubleLoadingImageLabel.isHidden = false
         fetchPostsForTableView()
-        
         timer =  Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
             if Date() >= PostFeedViewController.breakDate {
                 self.navigationController?.popToRootViewController(animated: true)
@@ -56,7 +56,6 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
     //MARK: - Functions
     func fetchPostsForTableView() {
         PostController.fetchPosts { (result) in
-            
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
@@ -69,7 +68,7 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
             }
         }
     }
-    
+    ///updateViews checks the post's media type, then prepares the view to display it
     func updateViews() {
         guard let post = posts.first else {return}
         print("FUNC MIMETYPE: \(PostController.mimeTypeForPath(path: post.url))")
@@ -100,7 +99,6 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
             PostController.fetchThumbNail(post: post) { (result) in
                 
                 DispatchQueue.main.async {
-                    
                     switch result {
                     case .success(let thumbnail):
                         self.GFYCatView.isHidden = true
@@ -164,11 +162,11 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
             let player = AVPlayer(url: url)
             let vc = AVPlayerViewController()
             DispatchQueue.main.async {
-            self.GFYCatView.addSubview(vc.view)
-            vc.view.frame = self.GFYCatView.bounds
-            vc.player = player
-            vc.showsPlaybackControls = false
-            vc.player?.play()
+                self.GFYCatView.addSubview(vc.view)
+                vc.view.frame = self.GFYCatView.bounds
+                vc.player = player
+                vc.showsPlaybackControls = false
+                vc.player?.play()
             }
             NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak player] _ in
                 player?.seek(to: CMTime.zero)
@@ -182,8 +180,8 @@ class PostFeedViewController: UIViewController, YouTubePlayerDelegate, AVPlayerV
             self.playerView.delegate = self
             DispatchQueue.main.async {
                 self.playerView.loadVideoURL(vidURL)
-            self.playerView.clipsToBounds = true
-            self.playerView.frame = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 415, height: 500)
+                self.playerView.clipsToBounds = true
+                self.playerView.frame = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 415, height: 500)
                 if self.playerView.ready == true {
                     self.playerView.play()
                 }

@@ -8,6 +8,8 @@
 import UIKit
 import CloudKit
 
+///This is the model for a single flash card
+
 struct CardStrings {
     static let recordTypeKey = "Card"
     static let questionTypeKey = "question"

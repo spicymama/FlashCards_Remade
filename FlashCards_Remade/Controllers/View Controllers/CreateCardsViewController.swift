@@ -43,6 +43,7 @@ class CreateCardsViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         guard let question = questionTextView.text, !question.isEmpty,
               let answer = answerTextView.text, !answer.isEmpty,
@@ -64,7 +65,7 @@ class CreateCardsViewController: UIViewController {
         deckNameTextField.addCornerRadius()
         addCardButton.addCornerRadius()
         if deckName == "" {
-        deckNameTextField.attributedPlaceholder = NSAttributedString(string: "deck name here...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            deckNameTextField.attributedPlaceholder = NSAttributedString(string: "deck name here...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             print(deckName)
         } else {
             deckNameTextField.text = deckName

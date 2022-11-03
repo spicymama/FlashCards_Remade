@@ -25,6 +25,7 @@ class DeckListTableViewController: UITableViewController {
         refresh.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView.addSubview(refresh)
     }
+    
     func updateViews() {
         DispatchQueue.main.async {
             self.refresh.endRefreshing()

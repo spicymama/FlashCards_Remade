@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+///This model is for a Reddit post
+
 struct PostTopLevelObject: Codable {
     
     let data: PostSecondLevelObject

@@ -23,14 +23,5 @@ class BreakTimerViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         PostFeedViewController.breakDate = Date()
         PostFeedViewController.breakDate =  PostFeedViewController.breakDate.addingTimeInterval(breakTimer.countDownDuration)
-        
-       /* print("button works")
-        print( PostFeedViewController.currentDate)
-        print( PostFeedViewController.breakDate)
-        */
     }
 }
-
-
-
-//1- Bucket, 2- Food, 3- Gym, 4- Car Parts, 5-CEO

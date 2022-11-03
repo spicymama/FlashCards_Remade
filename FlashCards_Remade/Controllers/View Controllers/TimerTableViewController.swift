@@ -24,12 +24,6 @@ class TimerTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         FlashCardViewController.futureDate = Date()
         FlashCardViewController.futureDate = FlashCardViewController.futureDate.addingTimeInterval(studyTimer.countDownDuration)
-       /*
-        print("button works")
-        print(Date())
-        print(FlashCardViewController.futureDate)
-        */
         navigationController?.popViewController(animated: true)
-        
     }
 }

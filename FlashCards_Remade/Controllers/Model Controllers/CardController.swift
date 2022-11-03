@@ -19,7 +19,6 @@ class CardController {
     var defaultCard = Card(question: "This deck currently has no cards", answer: "This deck currently has no cards", deck: "Empty Deck")
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    
     //MARK: - CRUD Functions
     
     func createCard(question: String, answer: String, deck: String, completion: @escaping (_ _result: Result<Card?, CardError>)-> Void) {
@@ -45,7 +44,6 @@ class CardController {
             }
         }
     }
-    
     
     func deleteDeck(card: Card, completion: @escaping (Result<Bool, CardError>)-> Void) {
         let deck = card.deck
@@ -79,7 +77,6 @@ class CardController {
         cardsToDelete = []
     }
     
-    
     func deleteCard(card: Card, completion: @escaping (Result<Bool, CardError>)-> Void) {
         guard let index = CardController.shared.cards.firstIndex(of: card) else {return}
         let deleteOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [card.recordID])
@@ -105,22 +102,17 @@ class CardController {
     func fetchCards(completion: @escaping (_ result: Result<[Card]?, CardError>)-> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: CardStrings.recordTypeKey, predicate: predicate)
-        print(privateDB)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(.ckError(error)))
             }
+            
             guard let records = records else { completion(.failure(.couldNotUnwrap)); return}
-            print("Successfully fetched all cards")
-            print(CardController.shared.cards.count)
-            
-            
             let fetchedCards = records.compactMap({Card(ckRecord: $0)})
             self.cards = fetchedCards
             
-            print("we got \(self.cards.count) cards")
             for card in self.cards {
                 if !self.deckNames.contains(card.deck) {
                     self.deckNames.append(card.deck)

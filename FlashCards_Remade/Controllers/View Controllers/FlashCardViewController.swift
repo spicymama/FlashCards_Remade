@@ -53,7 +53,7 @@ class FlashCardViewController: UIViewController {
         }
     }
     
-   
+    
     func addStyle() {
         questionOrAnswerLabel.layer.masksToBounds = true
         questionOrAnswerLabel.layer.cornerRadius = 15
@@ -81,7 +81,7 @@ class FlashCardViewController: UIViewController {
             
             DispatchQueue.main.async {
                 switch result {
-                
+                    
                 case .success(let success):
                     print(success)
                     self.nextButtonTapped(success)
@@ -132,12 +132,12 @@ class FlashCardViewController: UIViewController {
                 cards.append(card)
             }
             if cards != [] {
-            nextCard = cards[0]
-            previousCard = currentCard
-            currentCard = nextCard
-            guard let index = cards.firstIndex(of: previousCard ) else {return}
-            usedCards.append(previousCard )
-            cards.remove(at: index)
+                nextCard = cards[0]
+                previousCard = currentCard
+                currentCard = nextCard
+                guard let index = cards.firstIndex(of: previousCard ) else {return}
+                usedCards.append(previousCard )
+                cards.remove(at: index)
             }
             if cards == [] {
                 cards.append(contentsOf: usedCards)
@@ -150,7 +150,6 @@ class FlashCardViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDeck" {
             guard let destinationVC = segue.destination as? CreateCardsViewController else {return}
-            
             destinationVC.deckName = currentCard.deck
         }
     }
